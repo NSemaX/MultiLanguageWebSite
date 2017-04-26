@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Change";
+}
+
+<h2>Change Language</h2>
+<ul>
+    <li>@Html.ActionLink("Arabic", "Change", "Language", new { lang = "ar" }, null)</li>
+    <li>@Html.ActionLink("English", "Change", "Language", new { lang = "en" }, null)</li>
+    <li>@Html.ActionLink("French", "Change", "Language", new { lang = "fr" }, null)</li>
+    <li>@Html.ActionLink("İtalian ", "Change", "Language", new { lang = "it" }, null)</li>
+    <li>@DateTime.Now.ToString()</li>
+</ul>
