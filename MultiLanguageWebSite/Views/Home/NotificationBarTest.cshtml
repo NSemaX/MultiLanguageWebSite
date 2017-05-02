@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "NotificationBarTest";
+}
+
+<h2>NotificationBarTest</h2>
+<!-- Label to Show Notification bar -->
+<label for="toggleTop" id="showTop">+</label>
+<!-- The checkbox -->
+<input type="checkbox" id="toggleTop" name="toggleTop" value="toggleTop" checked="checked">
+<!-- The Notification bar container -->
+<div id="topbar">
+    <!-- You're content here -->
+    <table>
+        <tr width="100%">
+            <td width="75%">
+                <p style="text-align:left">Hello</p>
+            </td>
+            <td width="5%"> </td>
+            <td width="5%">
+                <button style="margin-top:-10px;" type="button" class="btn btn-success">Success</button>
+            </td>
+            <td width="5%">
+                <!-- Label to Hide Notification bar -->
+                <label for="toggleTop" id="hideTop">X</label>
+            </td>
+        </tr>
+    </table>  
+</div>
+
+

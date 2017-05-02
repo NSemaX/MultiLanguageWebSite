@@ -2,10 +2,14 @@
     ViewBag.Title = "Home Page";
 }
 
+
 <div class="jumbotron">
     <h1>A multi-language website</h1>
     <p class="lead">You can see "Home About Contact" menu language will change when you changed language.</p>
     <p><a href="/language/change" class="btn btn-primary btn-lg">Change Language &raquo;</a></p>
+</div>
+<div id="alert">
+    <a class="alert" href="#alert">This is a slide down alert!</a>
 </div>
 
 <div class="row">
@@ -29,3 +33,13 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+
+<div id="alert">
+    <a class="alert" href="#alert">This is a slide down alert!</a>
+</div>
+<style>
+    #alert:target {
+    display: none;
+      $('#cezalar_row').css("display", "none");
+}
+</style>

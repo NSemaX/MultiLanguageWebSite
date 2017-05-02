@@ -163,6 +163,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\alertbar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -201,6 +202,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Language\Change.cshtml" />
+    <Content Include="Views\Home\NotificationBarTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources1\Resource1.ar.resx" />

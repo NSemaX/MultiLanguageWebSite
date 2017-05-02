@@ -26,5 +26,12 @@ namespace MultiLanguageWebSite.Controllers
 
             return View();
         }
+
+        public ActionResult NotificationBarTest()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
     }
 }
