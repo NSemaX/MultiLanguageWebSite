@@ -180,6 +180,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\Ironman-Mask-1-Gold-icon.png" />
+    <Content Include="img\spiderman-icon.png" />
+    <Content Include="img\Superman-icon.png" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
