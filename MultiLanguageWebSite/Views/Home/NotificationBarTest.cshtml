@@ -4,28 +4,61 @@
 }
 
 <h2>NotificationBarTest</h2>
-<!-- Label to Show Notification bar -->
-<label for="toggleTop" id="showTop">+</label>
-<!-- The checkbox -->
-<input type="checkbox" id="toggleTop" name="toggleTop" value="toggleTop" checked="checked">
-<!-- The Notification bar container -->
-<div id="topbar">
-    <!-- You're content here -->
-    <table>
-        <tr width="100%">
-            <td width="75%">
-                <p style="text-align:left">Hello</p>
-            </td>
-            <td width="5%"> </td>
-            <td width="5%">
-                <button style="margin-top:-10px;" type="button" class="btn btn-success">Success</button>
-            </td>
-            <td width="5%">
-                <!-- Label to Hide Notification bar -->
-                <label for="toggleTop" id="hideTop">X</label>
-            </td>
-        </tr>
-    </table>  
-</div>
+@if (Request.Cookies["Language"] == null)
+{
+    <!-- Label to Show Notification bar -->
+    <label for="toggleTop" id="showTop">+</label>
+    <!-- The checkbox -->
+    <input type="checkbox" id="toggleTop" name="toggleTop" value="toggleTop" checked="checked">
+    <!-- The Notification bar container -->
+    <div id="topbar">
+        <!-- You're content here -->
+        <table>
+            <tr width="100%">
+                <td width="75%">
+                    <p style="text-align:left">@ViewBag.Language</p>
+                </td>
+                <td width="5%"> </td>
+                <td width="5%">
+                    <button style="margin-top:-10px;" type="button" onclick="SetLanguage('@ViewBag.Language')" class="btn btn-success">Success</button>
+                </td>
+                <td width="5%">
+                    <!-- Label to Hide Notification bar -->
+                    <label for="toggleTop" id="hideTop">X</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+
+<script>
+    function SetLanguage(_lang_iso) {
+
+        $.ajax({
+            method: "POST",
+            url: '@Url.Content("~/Language/ChangeLang")',
+            data: { "LangIso": _lang_iso},
+            success: function (res) {
+
+                var jtext = JSON.stringify(res);
+                var returnedData = JSON.parse(jtext);
+
+                if (returnedData.Code == true || returnedData.Code == 'true') {
+
+                    bootbox.alert({ message: "Changed.", className: "modal70" });
+                    location.reload();
+                    //$('#toggleTop').attr("checked", !checkBoxes.attr("checked"));
+                    //$('#topbar').css("display", "none");
+                    //alert('h');
+                } else {
+                    bootbox.alert({ message: "Error! " + returnedData.Description, className: "modal70" });
+                }
+            }, error: function (x, h, r) {
+                alert(x + h + r);
+            }
+        });
+
+    }
+</script>
 
 

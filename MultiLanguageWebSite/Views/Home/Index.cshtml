@@ -7,12 +7,21 @@
     <h1>A multi-language website</h1>
     <p class="lead">You can see "Home About Contact" menu language will change when you changed language.</p>
     <p><a href="/language/change" class="btn btn-primary btn-lg">Change Language &raquo;</a></p>
-</div>
-<div id="alert">
-    <a class="alert" href="#alert">This is a slide down alert!</a>
+    <p><a href="/home/NotificationBarTest" class="btn btn-primary btn-lg">notification bar &raquo;</a></p>
 </div>
 
+
 <div class="row">
+    <div class="col-md-4">
+        <h2>Clear Cookie</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <br/>
+        <button style="margin-top:-10px;" type="button" onclick="ClearCookie('@ViewBag.Language')" class="btn btn-success">Clear Cookie</button>
+    </div>
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>
@@ -27,19 +36,34 @@
         <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+
 </div>
 
-<div id="alert">
-    <a class="alert" href="#alert">This is a slide down alert!</a>
-</div>
-<style>
-    #alert:target {
-    display: none;
-      $('#cezalar_row').css("display", "none");
-}
-</style>
+
+
+<script>
+    function ClearCookie() {
+
+        $.ajax({
+            method: "POST",
+            url: '@Url.Content("~/Home/ClearCookie")',
+            success: function (res) {
+
+                var jtext = JSON.stringify(res);
+                var returnedData = JSON.parse(jtext);
+
+                if (returnedData.Code == true || returnedData.Code == 'true') {
+
+                    bootbox.alert({ message: "Cleared.", className: "modal70" });
+                    //location.reload();
+
+                } else {
+                    bootbox.alert({ message: "Error! " + returnedData.Description, className: "modal70" });
+                }
+            }, error: function (x, h, r) {
+                alert(x + h + r);
+            }
+        });
+
+    }
+</script>
