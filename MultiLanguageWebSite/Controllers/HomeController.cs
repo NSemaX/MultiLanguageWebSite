@@ -55,6 +55,7 @@ namespace MultiLanguageWebSite.Controllers
             // Here CultureInfo should already be set to either user's prefereable language
             // or to InvariantCulture if user transmitted invalid culture ID
             ViewBag.Language = ci.TwoLetterISOLanguageName;
+            ViewBag.LanguageName = ci.NativeName;
 
             return View();
         }
